@@ -133,5 +133,11 @@ This is an R Markdown presentation.
         - Scroll down, click on "delete repository"
 
 
+## RStudio Connect
 
-
+* Same product than Tableau Server
+    + Publish Markdown, Shiny
+        - Push-Button Publishing
+        - Self-Managed Content
+        - Scheduled Updates & Distribution
+        - Enterprise Security
