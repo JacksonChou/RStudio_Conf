@@ -10,7 +10,7 @@ runtime: shiny
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## RStudio Conf
+## RStudio Conf - Ex2
 * 4 days in Orlando
     + 2-day training
         - Jackson: TidyVerse
