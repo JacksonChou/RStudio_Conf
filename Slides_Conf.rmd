@@ -114,6 +114,24 @@ text_df %>%
 
 ## R Markdown
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+This is an R Markdown presentation. 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+*   Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. 
+    + For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+    + When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Github
+* Clone the new GitHub repository to your computer via RStudio
+    + *File > New Project > Version Control > Git*
+    + Paste the URL of your new GitHub repository.
+* Make local changes, save, commit
+* Push your local changes online to GitHub - **Remember to pull and push**
+
+* Clean up
+    + **Local** It's just a regular directory on your computer.
+    + **GitHub** Go to your repo's landing page on GitHub. Click on "Settings".
+        - Scroll down, click on "delete repository"
+
+
+
+
