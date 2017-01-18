@@ -120,7 +120,7 @@ This is an R Markdown presentation.
     + For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
     + When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
 
-## Github
+## Github - Need for Version Control
 * Clone the new GitHub repository to your computer via RStudio
     + *File > New Project > Version Control > Git*
     + Paste the URL of your new GitHub repository.
