@@ -1,0 +1,119 @@
+---
+title: "RStudio_Conf"
+author: "Alexandre"
+date: "January 17, 2017"
+output: ioslides_presentation
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## RStudio Conf
+* 4 days in Orlando
+    + 2-day training
+        - Jackson: TidyVerse
+        - Alexandre: Shiny
+    + 2-day conference
+        - Purrr, tidytext, Markdown, Github, RConnect
+
+## Tidyverse
+
+You can install tidyverse with
+
+```{r, echo = TRUE, eval = FALSE}
+install.packages("tidyverse")
+```
+```{r, echo = FALSE, include=FALSE}
+library("tidyverse")
+```
+
+This will install the core tidyverse packages that you are likely to use in almost every analysis:
+
+* ggplot2, for data visualisation.
+* dplyr, for data manipulation.
+* tidyr, for data tidying.
+* readr, for data import.
+* purrr, for functional programming.
+* tibble, for tibbles, a modern re-imagining of data frame
+
+## Shiny_Basic
+
+```{r, echo = FALSE}
+numericInput("rows", "How many cars?", 5)
+
+renderTable({
+  head(cars, input$rows)
+})
+```
+
+## Shiny_Advanced
+
+```{r, echo = FALSE}
+shinyApp(
+  
+  ui = fluidPage(
+    selectInput("region", "Region:", 
+                choices = colnames(WorldPhones)),
+    plotOutput("phonePlot")
+  ),
+  
+  server = function(input, output) {
+    output$phonePlot <- renderPlot({
+      barplot(WorldPhones[,input$region]*1000, 
+              ylab = "Number of Telephones", xlab = "Year")
+    })
+  },
+  
+  options = list(height = 500)
+)
+```
+
+
+## Purr Package
+
+* Set of functions for manipulating vectors
+    + atomic vectors, lists, and data frames
+    + similar to apply functions 
+
+* Splits  mtcars dataset up by number of cylinders using the split() function
+    + fits a linear model to each piece
+    + summarises each model
+    + then extracts the the \(R^2\):
+
+```{r}
+mtcars %>%
+  split(.$cyl) %>%
+  map(~lm(mpg ~ wt, data = .)) %>%
+  map(summary) %>%
+  map_dbl("r.squared")
+
+```
+
+## tidytext Package
+
+* tidy text format as being a table with one-term-per-row
+     + Sentiment analysis
+     + word frequencies, relationship between words
+
+```{r}
+text <- c("Because I could not stop for Death -",
+          "He kindly stopped for me -",
+          "The Carriage held but just Ourselves - ",
+          "and Immortality")
+print(text)
+
+text_df <- data_frame(line = 1:4, text = text)
+library(tidytext)
+
+text_df %>%
+    unnest_tokens(word, text) %>%
+    head(.,5)
+```
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
